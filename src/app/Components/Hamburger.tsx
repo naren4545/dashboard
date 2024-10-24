@@ -110,7 +110,7 @@ const Hamburger: React.FC = () => {
 
 // SidebarItem Component (using TypeScript for props)
 const SidebarItem: React.FC<SidebarItemProps> = ({ icon, text, onClick }) => {
-  const path = `/${text.toLowerCase()}`;
+  const path = `/${text.toLowerCase().split(" ").join("")}`;
   const pathname = usePathname();
   const active = pathname === path;
 
