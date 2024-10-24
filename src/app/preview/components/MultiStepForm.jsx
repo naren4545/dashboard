@@ -2,9 +2,9 @@
 
 
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FormProvider, useFormData } from "./FormContext";
-
+import AddData from './AddData'
 import Step1 from './Step1'
 import Step2 from './Step2'
 import Step3 from './Step3'
@@ -82,6 +82,7 @@ const MultiStepForm = () => {
   const { formData, updateFormData } = useFormData();
 
 
+ 
   const steps = [
     <Step1 key={1} />,
     <Step2 key={2} />,
@@ -95,7 +96,7 @@ const MultiStepForm = () => {
     // Other steps can be added here...
     <Step10 key={10} />,
   ];
-
+ 
   const nextStep = () => {
 if(step===1 && !formData.buisnessLocation){
   alert("Please fill in your business location.");
@@ -138,12 +139,12 @@ if(step===7 && !formData.socialLinks.length){
 }
 if(step===8){
 
-if(formData.gstFile.length===0) {
+if(!formData.gstFile) {
 
   alert("please upload GST file")
   return
 }
-if(formData.udyamFile.length===0) {
+if(!formData.udyamFile) {
 
   alert("please upload udyam File file")
   return
@@ -161,7 +162,53 @@ if(step===10 && !formData.terms_condition){
 
   alert("please agree terms and conditions")
   return
-}
+}else{
+
+  // Runs every time formData changes
+//   const sendFormDataToApi = async (formData) => {
+//     const data = new FormData();
+
+// // Append business info
+// if (formData) {
+//   data.append("businessInfo", JSON.stringify(formData.businessInfo || {}));
+//   data.append("businessLocation", JSON.stringify(formData.businessLocation || {}));
+//   data.append("businessDetails", JSON.stringify(formData.businessDetails || {}));
+//   data.append("businessTimings", formData.businessTimings || "");
+//   data.append("contactDetails", JSON.stringify(formData.contactDetails || {}));
+//   data.append("socialLinks", JSON.stringify(formData.socialLinks || []));
+//   data.append("terms_condition", formData.terms_condition || false);
+//   data.append("upiId", formData.upiId || "");
+
+//   // Append files if available
+//   if (formData.gstFile) {
+//       data.append("gstFile", formData.gstFile);
+//   }
+//   if (formData.udyamFile) {
+//       data.append("udyamFile", formData.udyamFile);
+//   }
+//   formData.pictures.forEach((picture) => {
+//       if (picture.file) {
+//           data.append("pictures", picture.file);
+//       }
+//   });
+// } else {
+//   console.error('formData is undefined');
+// }
+//     try {
+//       const response = await fetch("http://localhost:5000/api/submit", {
+//         method: "POST",
+//         body: data,
+//       });
+  
+//       const result = await response.json();
+//       console.log("API Response:", result);
+//     } catch (error) {
+//       console.error("Error sending form data to API:", error);
+//     }
+//   };
+//   sendFormDataToApi(formData)
+
+      }
 
     if (step < steps.length) setStep(step + 1);
   };

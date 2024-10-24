@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import rightArrow from '../../assests/rightAroow.svg'
 import Image from "next/image";
+import { useFormData } from "./FormContext";
 const Step5 = () => {
   const [businessHours, setBusinessHours] = useState({
     monday: {
@@ -60,7 +61,8 @@ const Step5 = () => {
       status: "Open",
     },
   });
-  
+  const { formData, updateFormData } = useFormData();  // Handle input changes for category fields and new tag
+
   const [checked, setChecked] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -77,14 +79,25 @@ const Step5 = () => {
   const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
   const handleStatusChange = (day, status) => {
-    setBusinessHours((prev) => ({
+    setBusinessHours((prev) =>{ 
+      let data={
+        ...prev,
+        [day]: {
+          ...prev[day],
+          status: status,
+          isOpen: status === "Open",
+        },
+      }
+      console.log(data)
+      updateFormData("businessTimings",data)
+     return {
       ...prev,
       [day]: {
         ...prev[day],
         status: status,
         isOpen: status === "Open",
       },
-    }));
+    }});
     setShowStatusOptions(false); // Hide the options once selected
   };
 
@@ -96,14 +109,20 @@ const Step5 = () => {
     }
 
     // Update the business hours for the current selected day
-    setBusinessHours((prev) => ({
-      ...prev,
-      [selectedDay]: {
-        ...prev[selectedDay],
-        openingTime: convertTo12HourFormat(openingTime),
-        closingTime: convertTo12HourFormat(closingTime),
-      },
-    }));
+    setBusinessHours((prev) =>{
+      
+      let data={
+        ...prev,
+        [selectedDay]: {
+          ...prev[selectedDay],
+          openingTime: convertTo12HourFormat(openingTime),
+          closingTime: convertTo12HourFormat(closingTime),
+        },
+      }
+
+      updateFormData("businessTimings",data)
+      return data
+      });
 
     // Switch to the next day if available
     const nextDayIndex = daysOfWeek.indexOf(selectedDay) + 1;

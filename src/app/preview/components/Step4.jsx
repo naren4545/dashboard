@@ -39,7 +39,7 @@ return data
 
   // Add new tag to the list
   const handleAddTag = () => {
-    if (formData4.newTag.length && formData4.newTag.trim() && !formData4.tags.includes(formData4.newTag)) {
+    if (formData4.newTag && formData4.newTag.trim() && !formData4.tags.includes(formData4.newTag)) {
       setformData4((prevData) =>{
          let data={
         ...prevData,
