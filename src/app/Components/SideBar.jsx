@@ -4,18 +4,18 @@
 
 import { useContext,useEffect, createContext, useState } from "react"
 import dashbord from '../../app/assests/ion_home.svg'
-import Profile from '../../app/assests/Group.svg'
-import preview from '../assests/material-symbols_folder-eye-outline-rounded.svg'
-import bill_payment from '../assests/Vector.svg'
-import Benefits from '../assests/Vector (1).svg'
-import Documents from '../assests/Group 264.svg'
-import settings from '../assests/Vector (2).svg'
-import support from '../assests/Group (1).svg'
+import Profile from '../../app/assests/profilePD.svg'
+import preview from '../assests/PreviewPd.svg'
+import bill_payment from '../assests/billPaymentPd.svg'
+import Benefits from '../assests/BenefitsPd.svg'
+
+import settings from '../assests/Settingspd.svg'
+import support from '../assests/supportpd.svg'
 import logout from '../assests/uiw_logout.svg'
-import arrow from '../../app/assests/Group 279.svg'
+import arrow from '../../app/assests/arrowsidebarpd.svg'
 import profilepic from '../../app/assests/ProfilePic.png'
 import Image from "next/image";
-import logo from '../assests/Group 4.svg'
+import logo from '../assests/logopd.svg'
 import logosm from '../assests/WhatsApp_Image_2024-09-06_at_12.33.16_f59210ee-removebg-preview 1.svg'
 import { usePathname } from "next/navigation"
 import Link from "next/link"
@@ -159,7 +159,7 @@ active=pathname===path?true:false;
         <div
           className={`
           absolute left-full rounded-md px-2 py-1 ml-6
-          bg-indigo-100 text-black text-sm
+          bg-indigo-100 text-black text-sm z-30
           invisible opacity-20 -translate-x-3 transition-all
           group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
       `}

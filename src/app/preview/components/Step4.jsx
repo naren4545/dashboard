@@ -117,7 +117,7 @@ return data
             onClick={handleAddTag}
             className="absolute right-1"
           >
-           <Image src={add}/>
+           <Image alt="" src={add}/>
           </button>
         </div>
       </div>

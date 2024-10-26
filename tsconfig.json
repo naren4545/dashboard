@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/SideBar.jsx", "src/app/Components/Hamburger.tsx", "src/app/preview/components/Step8.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/Components/SideBar.jsx", "src/app/Components/Hamburger.tsx", "src/app/preview/components/Step8.jsx", "src/app/preview/components/FormContext.jsx"],
   "exclude": ["node_modules"]
 }

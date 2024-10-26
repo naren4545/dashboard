@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import upload from '../../assests/upload.svg';
+import upload from '../../assests/uploadpd.svg';
 import correct from '../../assests/lets-icons_check-round-fill.svg';
-import wrong from '../../assests/wrong.svg';
-import invalid from '../../assests/invvalidi.svg';
+import wrong from '../../assests/wrongpd.svg';
+import invalid from '../../assests/invvalidipd.svg';
 import Image from "next/image";
 import { useFormData } from "./FormContext";
 const Step6 = () => {

@@ -1,11 +1,11 @@
 "use client"
 
 import React, { useState } from 'react';
-import placeholderImg from '../../assests/placeholderImage.svg'
+import placeholderImg from '../../assests/placeholderImagepd.svg'
 import camfrom from '../../assests/cam.png'
 import location from '../../assests/system-uicons_location.svg'
-import contact from '../../assests/phoenIcon.svg'
-import email from '../../assests/emailIcon.svg'
+import contact from '../../assests/phoenIconpd.svg'
+import email from '../../assests/emailIconpd.svg'
 import Image from 'next/image';
 type ProfileData = {
   firstName: string;

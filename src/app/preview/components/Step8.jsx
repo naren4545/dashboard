@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import upload from '../../assests/uploadDoc.svg';
+import upload from '../../assests/uploadDocpd.svg';
 import Image from "next/image";
 import { useFormData } from "./FormContext";
 const Step8 = () => {

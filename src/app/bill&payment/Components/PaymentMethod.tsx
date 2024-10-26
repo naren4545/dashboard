@@ -1,6 +1,6 @@
 import React from 'react';
-import pen from '../../assests/pen.svg'
-import add from '../../assests/add.svg'
+import pen from '../../assests/penpd.svg'
+import add from '../../assests/addpd.svg'
 import Image from 'next/image';
 
 interface PaymentMethodProps {

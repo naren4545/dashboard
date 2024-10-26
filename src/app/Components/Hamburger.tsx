@@ -2,19 +2,19 @@
 import Link from "next/link";
 import { useState } from "react";
 import dashbord from "../../app/assests/ion_home.svg";
-import Profile from "../../app/assests/Group.svg";
-import preview from "../assests/material-symbols_folder-eye-outline-rounded.svg";
-import bill_payment from "../assests/Vector.svg";
-import Benefits from "../assests/Vector (1).svg";
-import Documents from "../assests/Group 264.svg";
-import settings from "../assests/Vector (2).svg";
-import support from "../assests/Group (1).svg";
+import Profile from "../../app/assests/profilePD.svg";
+import preview from "../assests/PreviewPd.svg";
+import bill_payment from "../assests/billPaymentPd.svg";
+import Benefits from "../assests/BenefitsPd.svg";
+
+import settings from "../assests/Settingspd.svg";
+import support from "../assests/supportpd.svg";
 import logout from "../assests/uiw_logout.svg";
 import profilepic from "../../app/assests/ProfilePic.png";
-import logo from "../assests/Group 4.svg";
-import arrow from "../../app/assests/Group 279.svg";
-import ham from "../../app/assests/Vector (6).svg";
-import hamwhite from "../../app/assests/heroicons-outline_menu-alt-1.svg";
+import logo from "../assests/logopd.svg";
+
+import ham from "../../app/assests/hamburgerpd.svg";
+import hamwhite from "../../app/assests/hamBurgerPdwhite.svg";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 

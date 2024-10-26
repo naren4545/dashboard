@@ -7,7 +7,7 @@ import LinkedIn from '../../assests/devicon_linkedin.svg';
 import Website from '../../assests/mdi_web.svg';
 
 import Image from "next/image";
-import pen from '../../assests/Vector (16).svg';
+import pen from '../../assests/penpdpd.svg';
 import { useFormData } from "./FormContext";
 
 const icons = {
