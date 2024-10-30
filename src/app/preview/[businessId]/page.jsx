@@ -6,6 +6,7 @@ import  PreviewEntryPage from './components/PreviewEntryPage'
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/SideBar";
 import Hamburger from "../../Components/Hamburger";
+
 export default function page() {
     
 
@@ -14,7 +15,7 @@ export default function page() {
     const [route, setRoute] = useState('/'); // Default route to preview
 
     // const screenshotUrl = `https://shot.screenshotapi.net/screenshot?token=FMZB5HC-FFQ4MGY-NFQGQGP-FJNRC1C&url=https%3A%2F%2Fpintude-biz.vercel.app%2F&width=1300&height=1000&output=image&file_type=png&wait_for_event=load`;
-console.log("hiiby")
+
     return (
 
 
