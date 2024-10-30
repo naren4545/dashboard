@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import  PreviewEntryPage from './components/PreviewEntryPage'
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/SideBar";
-import Hamburger from "../../Components/Hamburger";
+
 
 export default function page() {
     
