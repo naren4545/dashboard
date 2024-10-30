@@ -5,12 +5,10 @@ import PreviewPage from './components/Preview'
 import React, { ReactNode } from 'react';
 import Header from "../Components/Header";
 import Sidebar from "../Components/SideBar";
-import Hamburger from "../Components/Hamburger";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-export default function page({ children }: LayoutProps) {
+
+
+export default function page() {
   return (
     <div className='mb-5'>
        <>
