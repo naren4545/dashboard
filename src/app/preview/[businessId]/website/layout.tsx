@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./Components/Header";
-import Sidebar from "./Components/SideBar";
-import Hamburger from "./Components/Hamburger";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,15 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
-
-{children}
-        
-      </body>
-    </html>
+    // <html lang="en">
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+        <div className="custom-website">
+        {children}
+        <div id="portal-root" />
+        </div>
+       
+    //   </body>
+    // </html>
   );
 }

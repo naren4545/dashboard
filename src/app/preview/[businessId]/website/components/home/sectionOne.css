@@ -1,0 +1,10 @@
+.hero{
+
+ 
+    background: -webkit-linear-gradient(to top, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(0deg, #ECFAFB 91%, #fff 102%, #fff);
+      box-shadow: 0px 12px 12px 0px #00000040;
+  padding: 40px 0px;
+  
+  
+  }

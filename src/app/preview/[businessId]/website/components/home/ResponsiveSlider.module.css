@@ -1,0 +1,56 @@
+.custom-arrow {
+    background-color: #E78B01;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-arrow:hover {
+    background-color: #f18e12;
+  }
+  
+  .page-button {
+    padding: 10px;
+    background-color: #E78B01;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .page-button:hover {
+    background-color: #f18e12;
+  }
+  
+  .page-button.active {
+    background-color: #D77F00;
+  }
+  
+  .page-button.inactive {
+    background-color: #B68B00;
+  }
+  
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 15px;
+  }
+  
+  .slick-prev, .slick-next {
+    display: none !important; /* Hides default arrows */
+  }
+  

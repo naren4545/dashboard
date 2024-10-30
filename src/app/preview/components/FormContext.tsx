@@ -184,7 +184,7 @@ return [...prev,biz]
 })
 
   }
-  console.log(formData);
+  console.log(businesses,formData);
 
   return (
     <FormContext.Provider value={{ formData, updateFormData,handelAddBuisness,handelInitialValue,businesses,handelshowMultiStepForm,showMultiStepForm }}>

@@ -16,6 +16,29 @@ import Step9 from "./Step9";
 import Step10 from "./Step10";
 import { useRouter } from "next/navigation";
 
+
+
+const sendFormData = async (data:any) => {
+  try {
+    const response = await fetch('http://localhost:5000/api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send form data");
+    }
+
+    const result = await response.json();
+    console.log("Server Response:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 const stepNames = [
   "",
   "Business Address Details",
@@ -46,7 +69,7 @@ const checkEmptyFields = (obj: Record<string, any>): ValidationResult => {
 const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState<number>(1);
   const { formData,handelAddBuisness,updateFormData ,handelInitialValue,handelshowMultiStepForm} = useFormData();
-
+  const router = useRouter();
   const steps: ReactNode[] = [
     <Step1 key={1} />,
     <Step2 key={2} />,
@@ -60,63 +83,73 @@ const MultiStepForm: React.FC = () => {
     <Step10 key={10} />,
   ];
 
-  const nextStep = () => {
-    if (step === 1 && !formData.buisnessLocation) {
-      alert("Please fill in your business location.");
-      return;
-    }
-    if (step === 2) {
-      const { validation, message } = checkEmptyFields(formData.buisnessInfo);
-      if (!validation) {
-        alert(message);
-        return;
-      }
-    }
-    if (step === 3) {
-      const { validation, message } = checkEmptyFields(formData.contactDetails);
-      if (!validation) {
-        alert(message);
-        return;
-      }
-    }
-    if (step === 4) {
-      const { validation, message } = checkEmptyFields(formData.businessDetails);
-      if (!validation) {
-        alert(message);
-        return;
-      }
-    }
-    if (step === 7 && formData.socialLinks.length === 0) {
-      alert("Please enter social links");
-      return;
-    }
-    if (step === 8) {
-      if (!formData.gstFile) {
-        alert("Please upload GST file");
-        return;
-      }
-      if (!formData.udyamFile) {
-        alert("Please upload Udyam file");
-        return;
-      }
-    }
-    if (step === 9 && !formData.upiId) {
-      alert("Please enter UPI ID");
-      return;
-    }
-    if (step === 10 && !formData.terms_condition) {
-      alert("Please agree to terms and conditions");
-      return;
-    }
+  const nextStep = async() => {
+    // if (step === 1 && !formData.buisnessLocation) {
+    //   alert("Please fill in your business location.");
+    //   return;
+    // }
+    // if (step === 2) {
+    //   const { validation, message } = checkEmptyFields(formData.buisnessInfo);
+    //   if (!validation) {
+    //     alert(message);
+    //     return;
+    //   }
+    // }
+    // if (step === 3) {
+    //   const { validation, message } = checkEmptyFields(formData.contactDetails);
+    //   if (!validation) {
+    //     alert(message);
+    //     return;
+    //   }
+    // }
+    // if (step === 4) {
+    //   const { validation, message } = checkEmptyFields(formData.businessDetails);
+    //   if (!validation) {
+    //     alert(message);
+    //     return;
+    //   }
+    // }
+    // if (step === 7 && formData.socialLinks.length === 0) {
+    //   alert("Please enter social links");
+    //   return;
+    // }
+    // if (step === 8) {
+    //   if (!formData.gstFile) {
+    //     alert("Please upload GST file");
+    //     return;
+    //   }
+    //   if (!formData.udyamFile) {
+    //     alert("Please upload Udyam file");
+    //     return;
+    //   }
+    // }
+    // if (step === 9 && !formData.upiId) {
+    //   alert("Please enter UPI ID");
+    //   return;
+    // }
+    // if (step === 10 && !formData.terms_condition) {
+    //   alert("Please agree to terms and conditions");
+    //   return;
+    // }
 
 if(step===10 && formData.terms_condition){
 
 console.log("test:1")
+await sendFormData(formData)
+// const existingData = JSON.parse(localStorage.getItem('formDataArray')) || [];
 
+//     // Add the new form data to the array
+//     let data=formData
+//     data.id=existingData.length+1
+//     existingData.push(data);
+
+//     // Save the updated array back to local storage
+//     localStorage.setItem('formDataArray', JSON.stringify(existingData));
   handelAddBuisness(formData)
   setStep(1)
   handelInitialValue();
   handelshowMultiStepForm(false)
+  await router.push(`/preview?refresh=${new Date().getTime()}`);
   return
 }
 
