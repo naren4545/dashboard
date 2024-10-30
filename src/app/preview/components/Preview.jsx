@@ -33,7 +33,7 @@ const PreviewPage = () => {
     };
 
     fetchEntries();
-  }, [reloadData,showMultiStepForm]);
+  }, [showMultiStepForm]);
 // useEffect(()=>{
 
 //   const storedData = JSON.parse(localStorage.getItem('formDataArray'));
