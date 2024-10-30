@@ -7,7 +7,7 @@ import add from '../../assests/gg_add.svg'; // Corrected assets path
 import Image from "next/image";
 import Link from "next/link";
 
-const PreviewPage = ({reloadData}) => {
+const PreviewPage = () => {
   // Access formData and showMultiStepForm from FormContext
   const { showMultiStepForm, handelshowMultiStepForm } = useFormData();
   const [entries, setEntries] = useState([]);
