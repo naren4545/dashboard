@@ -20,12 +20,52 @@ import { useRouter } from "next/navigation";
 
 const sendFormData = async (data:any) => {
   try {
-    const response = await fetch('http://localhost:5000/api/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const payload = {
+      name: data.details.name,
+      description: data.description,
+      blockNumber: data.details.address.blockNumber,
+      streetName: data.details.address.streetName,
+      landmark: data.details.address.landmark,
+      city: data.details.address.city,
+      district: data.details.address.district,
+      state: data.details.address.state,
+      pincode: data.details.address.pincode,
+      contactName: data.contactDetails.name,
+      contactNumber: data.contactDetails.phone,
+      whatsappNumber: data.contactDetails.whatsapp,
+      email: data.contactDetails.email,
+      businessCategory: data.category.businessCategory,
+      businessSubCategory: data.category.businessSubCategory,
+      tags: data.tags,
+      timings: data.timings,
+      pictures: ["http://example.com/image1.jpg", "http://example.com/image2.jpg"], // Adjust if file URL structure differs
+      isPaid: data.isPaid || false,
+      verified: data.verified || false,
+      broadcasts: data.broadcasts || [],
+      followers: data.followers || [],
+      billId: data.billId || null,
+      businessLocation: {
+        location: data.buisnessLocation.location,
+        placeName: data.buisnessLocation.placeName,
       },
-      body: JSON.stringify(data),
+      terms_condition: data.terms_condition,
+      upiId: data.upiId,
+      udyamFile: "http://example.com/image1.jpg", // Ensure this is a URL if needed
+      additionalDocs: ["http://example.com/image1.jpg","http://example.com/image1.jpg"],
+      gstFile: "data.gstFile", // Ensure this is a URL if needed
+      socialLinks: data.socialLinks || [],
+      feedbacks: data.feedbacks || []
+    };
+
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzE5NGQ3ZTI5MjFjYWUzZmU5ZWQ3ZTMiLCJpYXQiOjE3MzA1MjAyNjIsImV4cCI6MTczMTEyNTA2Mn0.rDXfgGjzGEZRCnbZV3awPuJLXEDdyJ8wMSmRsxHp-JI"; // Replace with the actual token
+console.log(payload)
+    const response = await fetch("https://api.pintude.com/api/business/createBusiness", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
@@ -38,6 +78,7 @@ const sendFormData = async (data:any) => {
     console.error("Error:", error);
   }
 };
+
 
 const stepNames = [
   "",
@@ -84,6 +125,11 @@ const MultiStepForm: React.FC = () => {
   ];
 
   const nextStep = async() => {
+
+
+   
+   
+
     // if (step === 1 && !formData.buisnessLocation) {
     //   alert("Please fill in your business location.");
     //   return;

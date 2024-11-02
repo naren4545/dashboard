@@ -3,15 +3,17 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
 // Define the types for each part of the form data
-interface BusinessInfo {
-  businessName: string;
-  blockNumber: string;
-  state: string;
-  pincode: string;
-  street: string;
-  district: string;
-  city: string;
-  landmark: string;
+interface Details {
+  name: string;
+  address: {
+    blockNumber: string;
+    streetName: string;
+    landmark: string;
+    city: string;
+    district: string;
+    state: string;
+    pincode: string;
+  };
 }
 
 interface ContactDetails {
@@ -22,19 +24,20 @@ interface ContactDetails {
   sameAsPhone: boolean;
 }
 
-interface BusinessDetails {
+interface Category {
   businessCategory: string;
   businessSubCategory: string;
+  description:string;
   tags: string[];
 }
 
 interface FormData {
   id:number
   buisnessLocation: string;
-  buisnessInfo: BusinessInfo;
+  details: Details;
   contactDetails: ContactDetails;
-  businessDetails: BusinessDetails;
-  businessTimings: string;
+  category: Category;
+  timings: string;
   pictures: string[];
   gstFile: File | null;
   udyamFile: File | null;
@@ -78,15 +81,17 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [formData, setFormData] = useState<FormData>({
     id:1,
     buisnessLocation: "",
-    buisnessInfo: {
-      businessName: "",
-      blockNumber: "",
-      state: "",
-      pincode: "",
-      street: "",
-      district: "",
-      city: "",
-      landmark: "",
+    details: {
+      name: "",
+      address: {
+        blockNumber: "",
+        streetName: "",
+        landmark: "",
+        city: "",
+        district: "",
+        state: "",
+        pincode: "",
+      },
     },
     contactDetails: {
       name: "",
@@ -95,12 +100,13 @@ export const FormProvider = ({ children }: FormProviderProps) => {
       email: "",
       sameAsPhone: false,
     },
-    businessDetails: {
+    category: {
+      description:"",
       businessCategory: "",
       businessSubCategory: "",
       tags: [],
     },
-    businessTimings: "",
+    timings: "",
     pictures: [],
     gstFile: null,
     udyamFile: null,
@@ -130,15 +136,17 @@ function handelshowMultiStepForm(value:boolean){
 setFormData({
   id:1,
   buisnessLocation: "",
-  buisnessInfo: {
-    businessName: "",
-    blockNumber: "",
-    state: "",
-    pincode: "",
-    street: "",
-    district: "",
-    city: "",
-    landmark: "",
+  details: {
+    name: "",
+    address: {
+      blockNumber: "",
+      streetName: "",
+      landmark: "",
+      city: "",
+      district: "",
+      state: "",
+      pincode: "",
+    },
   },
   contactDetails: {
     name: "",
@@ -147,12 +155,13 @@ setFormData({
     email: "",
     sameAsPhone: false,
   },
-  businessDetails: {
+  category: {
+    description:"",
     businessCategory: "",
     businessSubCategory: "",
     tags: [],
   },
-  businessTimings: "",
+  timings: "",
   pictures: [],
   gstFile: null,
   udyamFile: null,

@@ -13,7 +13,11 @@ const PreviewPage = () => {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+useEffect(()=>{
 
+  handelshowMultiStepForm(false)
+console.log("hide")
+},[])
   useEffect(() => {
 
     

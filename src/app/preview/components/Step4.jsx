@@ -10,6 +10,7 @@ const Step4 = () => {
   const [formData4, setformData4] = useState({
     businessCategory: "",
     businessSubCategory: "",
+    description:"",
     tags: [],
     newTag: "",
   });
@@ -18,7 +19,7 @@ const Step4 = () => {
   const { formData, updateFormData } = useFormData();  // Handle input changes for category fields and new tag
 
   useEffect(() => {
-    setformData4(formData.businessDetails);
+    setformData4(formData.category);
   }, []);
 
   const handleInputChange = (e) => {
@@ -31,7 +32,7 @@ const Step4 = () => {
     console.log(data)
     const {newTag, ...finalData}=data
 console.log("hiii",finalData)
-updateFormData("businessDetails",finalData)
+updateFormData("category",finalData)
 return data
 
 });
@@ -47,7 +48,7 @@ return data
         newTag: "", // Clear new tag input after adding
       }
       const {newTag, ...finalData}=data
-      updateFormData("businessDetails",finalData)
+      updateFormData("category",finalData)
       return data
 
     });
@@ -64,7 +65,7 @@ return data
       tags: prevData.tags.filter((tag) => tag !== tagToRemove),
     }
 
-    updateFormData("businessDetails",data)
+    updateFormData("category",data)
     
     return data
 
@@ -99,6 +100,29 @@ return data
             onChange={handleInputChange}
             className="mt-1 block h-[53px] w-full px-3 py-2 bg-[#F1F8FA] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
+        </div>
+
+
+
+        <div className="col-span-2">
+          <label className="block text-base font-medium text-[#B6B6B6]">Business Description</label>
+          {/* <input
+            type="message"
+            name="description"
+            value={formData4.description}
+            onChange={handleInputChange}
+            className="mt-1 block h-[53px] w-full px-3 py-2 bg-[#F1F8FA] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          /> */}
+<textarea 
+    rows="5" 
+    cols="50" 
+    placeholder="Type your message here..."
+    name="description"
+    value={formData4.description}
+    onChange={handleInputChange}
+    className="mt-1 block  h-[100px] w-full px-3 py-2 bg-[#F1F8FA] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500">
+</textarea>
+
         </div>
       </div>
 

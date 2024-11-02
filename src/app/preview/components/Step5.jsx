@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import rightArrow from '../../assests/rightAroow.svg'
 import Image from "next/image";
 import { useFormData } from "./FormContext";
@@ -77,6 +77,13 @@ const Step5 = () => {
   const [showStatusOptions, setShowStatusOptions] = useState(false); // To toggle open/close/holiday options
 
   const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+
+useEffect(()=>{
+if(!formData.timings){
+  updateFormData("timings",businessHours)
+}
+
+},[])
 
   const handleStatusChange = (day, status) => {
     setBusinessHours((prev) =>{ 
